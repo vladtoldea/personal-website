@@ -229,6 +229,10 @@ ABOUT PAGE
 CV PAGE
 ========================= */
 
+.cv-page .card p {
+  text-align: center;
+}
+
 main section article {
   margin-top: 1rem;
 }
