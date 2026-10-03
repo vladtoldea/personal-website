@@ -229,8 +229,13 @@ ABOUT PAGE
 CV PAGE
 ========================= */
 
-.cv-page .card p {
+.cv-page .card {
   text-align: center;
+}
+
+.cv-page .card ul {
+  list-style-position: inside;
+  padding-left: 0;
 }
 
 main section article {
