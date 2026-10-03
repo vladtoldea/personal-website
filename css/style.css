@@ -1,0 +1,388 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =========================
+VARIABLES
+========================= */
+
+:root {
+  --primary: #15abc6;
+  --primary-dark: #16abc6;
+  --background: #f8fafc;
+  --surface: #ffffff;
+  --text: #1f2937;
+  --text-light: #6b7280;
+  --border: #e5e7eb;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* =========================
+BASE STYLES
+========================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background-color: var(--background);
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  width: min(1100px, 90%);
+  margin: 2rem auto;
+  flex: 1;
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  transition: all 0.3s ease;
+}
+
+/* =========================
+TYPOGRAPHY
+========================= */
+
+h1,
+h2,
+h3 {
+  color: var(--text);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+p {
+  color: var(--text-light);
+  margin-bottom: 1rem;
+}
+
+ul {
+  padding-left: 1.5rem;
+}
+
+li {
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+}
+
+/* =========================
+REUSABLE COMPONENTS
+========================= */
+
+.card {
+  background-color: var(--surface);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.page-header h1 {
+  margin-bottom: 0.5rem;
+}
+
+.page-header p {
+  margin-bottom: 0;
+}
+
+/* =========================
+NAVIGATION
+========================= */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  background-color: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+nav {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+nav ul {
+  list-style: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 1rem;
+  padding: 1rem;
+}
+
+nav li {
+  margin: 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--text);
+
+  font-weight: 600;
+
+  padding: 0.75rem 1.25rem;
+  border-radius: 999px;
+}
+
+nav a:hover,
+nav a:focus {
+  background-color: var(--primary);
+  color: white;
+}
+
+/* Active page */
+
+nav a.active {
+  background-color: var(--primary);
+  color: white;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+}
+
+nav a.active:hover {
+  background-color: var(--primary-dark);
+}
+
+/* =========================
+ABOUT PAGE
+========================= */
+
+.about-container {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.about-container figure {
+  flex-shrink: 0;
+}
+
+.about-container img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+
+  border-radius: 50%;
+  border: 4px solid var(--primary);
+}
+
+.about-container article {
+  flex: 1;
+}
+
+/* =========================
+CV PAGE
+========================= */
+
+main section article {
+  margin-top: 1rem;
+}
+
+/* =========================
+PORTFOLIO PAGE
+========================= */
+
+.projects-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.project-card {
+  background-color: var(--surface);
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+
+  display: flex;
+  flex-direction: column;
+
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.project-card h2 {
+  margin-bottom: 0.75rem;
+}
+
+.project-card p {
+  margin-bottom: 0.75rem;
+}
+
+.project-card a {
+  align-self: flex-start;
+
+  background-color: var(--primary);
+  color: white;
+  text-decoration: none;
+
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+
+  font-weight: 600;
+}
+
+.project-card a:hover {
+  background-color: var(--primary-dark);
+}
+
+/* =========================
+FOOTER
+========================= */
+
+footer {
+  background-color: var(--surface);
+  border-top: 1px solid var(--border);
+
+  text-align: center;
+  padding: 1.5rem;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* =========================
+MOBILE
+========================= */
+
+@media (max-width: 767px) {
+  nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  nav li {
+    width: 100%;
+  }
+
+  nav a {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-container img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+}
+
+/* =========================
+TABLET
+========================= */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* =========================
+DESKTOP
+========================= */
+
+@media (min-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* =========================
+DARK MODE (CSS ONLY)
+========================= */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #1ac7ca;
+    --primary-dark: #1ac7ca;
+
+    --background: #111827;
+    --surface: #1f2937;
+
+    --text: #f9fafb;
+    --text-light: #d1d5db;
+
+    --border: #374151;
+
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+
+  header,
+  footer,
+  .card,
+  .project-card {
+    border: 1px solid var(--border);
+  }
+
+  .project-card a,
+  nav a.active {
+    color: white;
+  }
+}
